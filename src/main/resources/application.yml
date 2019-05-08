@@ -1,0 +1,77 @@
+# Application properties.
+# These are superseeded by environment variables e.g. export SERVER_PORT=5050
+# Want more out of the box spring boot properties? Look here...
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+server:
+  port: 8090
+
+application:
+    title: "Kinder Kats Backend Adapter"
+
+spring:
+  # ===============================
+  # = DATASOURCE
+  # ===============================
+  datasource:
+    url: jdbc:postgresql://postgres:5432/kinder_kat
+    username: kitty_kat
+    password: password
+
+  # ===============================
+  # = JPA / HIBERNATE
+  # ===============================
+  jpa:
+    # Show or not log for each sql query
+    show-sql: true
+    properties:
+      hibernate:
+
+  # ===============================
+  # = DEVTOOLS
+  # ===============================
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: true
+    remote:
+      secret: superdupersecret
+
+# ===============================
+# = LOGGING
+# ===============================
+logging:
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    org.hibernate: ERROR
+    org.eclipse.jetty: INFO
+    com.zaxxer.hikari.pool.HikariPool: INFO
+    sbexampleapi: DEBUG
+
+# ===============================
+# = ACTUATOR
+# ===============================
+management:
+  server:
+    port: 8091
+  endpoints:
+    web:
+      exposure:
+        include: loggers,threaddump,info,metrics,health
+  endpoint:
+    health:
+      enabled: true
+      show-details: ALWAYS
+    metrics:
+      enabled: true
+  health:
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+#    rabbit:
+#      enabled: true
+#    jms:
+#      enabled: true

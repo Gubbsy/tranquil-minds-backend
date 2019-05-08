@@ -1,0 +1,18 @@
+version: '2'
+services:
+  kat-backend:
+    container_name: kat-backend
+    build: ./kat-backend
+    volumes:
+      - ./kat-backend:/src
+    ports:
+     - "8092:8090"
+     - "8093:8091"
+    logging:
+      driver: syslog
+      options:
+        syslog-format: "rfc5424"
+        syslog-address: "tcp://localhost:25826"
+        tag: "{{.Name}}"
+    depends_on:
+      - logstash

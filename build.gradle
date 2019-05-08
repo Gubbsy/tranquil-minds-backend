@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        // http://stackoverflow.com/questions/24852219/android-buildscript-repositories-jcenter-vs-mavencentral
+        jcenter()
+        maven {
+            url "https://artifacts.alfresco.com/nexus/content/repositories/public/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'sb-skeleton-api'
+    version =  '0.0.1'
+}
+
+repositories {
+    jcenter()
+}
+
+// Force source (and therefore target) compatibility to Java 8, rather than whatever JVM happens to be installed on the build machine
+sourceCompatibility = 1.8
+
+// Force UTF-8 encoding. Makes consistent across platforms.
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+
+dependencies {
+    //CORE DEPENDANCIES
+    compile("org.springframework.boot:spring-boot-starter-web"){
+        // Remove the Tomcat dependancy in preference for Jetty which has a smaller footprint and uses 
+        // less memory than Tomcat.
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    // Jetty dependancy
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // Provides management tools
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    // Provides database functionality
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.postgresql:postgresql')
+    // Provides the logstash encoder for logback (logging as JSON)
+    compile('net.logstash.logback:logstash-logback-encoder:5.1')
+    // Don't waste time repeating code
+    compile('org.projectlombok:lombok:1.16.10')
+    // Devtools dependancy. Makes dev life better! 
+    // - Enables auto restart if a class path file changes. 
+    // - Disables caching for springboot templates.
+    // - Remote applications is not enabled by default.
+    // Devtools are disabled in production because we run the fully packaged application.
+    compile("org.springframework.boot:spring-boot-devtools")
+    
+
+    //SWAGGER DEPENDANCIES
+    compile("io.springfox:springfox-swagger2:2.9.2")
+    compile("io.springfox:springfox-swagger-ui:2.9.2")
+    
+    //APP SPECIFIC DEPENDANCIES
+    compile('joda-time:joda-time:2.9.4')
+    compile('org.apache.commons:commons-lang3:3.7')
+    compile('org.modelmapper:modelmapper:2.1.0')
+
+    //TEST DEPENDANCIES
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+}
+
+// Build using the gradle wrapper. Build using your installed version at your own risk.
+// Using the wrapper keeps builds consistant in dev and build machine.  
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.9'
+}
