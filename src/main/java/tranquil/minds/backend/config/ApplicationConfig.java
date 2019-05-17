@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.config;
+package tranquil.minds.backend.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

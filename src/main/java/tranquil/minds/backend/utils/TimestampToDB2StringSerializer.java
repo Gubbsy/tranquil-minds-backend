@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.utils;
+package tranquil.minds.backend.utils;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

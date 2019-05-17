@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat;
+package tranquil.minds.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,9 +1,9 @@
-package uk.gov.landregistry.kinderkat.services;
+package tranquil.minds.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uk.gov.landregistry.kinderkat.models.User;
-import uk.gov.landregistry.kinderkat.repositories.UserRepository;
+import tranquil.minds.backend.models.User;
+import tranquil.minds.backend.repositories.UserRepository;
 
 import java.util.List;
 import java.util.Optional;

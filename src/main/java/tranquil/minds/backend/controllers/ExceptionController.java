@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.controllers;
+package tranquil.minds.backend.controllers;
 
 import java.util.List;
 import java.util.stream.Collectors;

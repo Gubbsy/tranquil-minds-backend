@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.dto;
+package tranquil.minds.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,17 +9,15 @@ import lombok.Setter;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * DTO defining a User object
+ * DTO defining a UserBase object
  *
  */
 @Getter
 @Setter
-@ApiModel (value="User_Update")
-public class UserUpdate {
+public class UserBase {
 
     @Size(max=50)
     @ApiModelProperty(notes = "Max size 50.")

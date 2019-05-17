@@ -1,11 +1,11 @@
-package uk.gov.landregistry.kinderkat.dto;
+package tranquil.minds.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import lombok.Getter;
 import lombok.Setter;
-import uk.gov.landregistry.kinderkat.utils.TimestampToDB2StringSerializer;
+import tranquil.minds.backend.utils.TimestampToDB2StringSerializer;
 
 import java.sql.Timestamp;
 

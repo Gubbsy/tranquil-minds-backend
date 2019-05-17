@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.models;
+package tranquil.minds.backend.models;
 
 import org.hibernate.annotations.DynamicUpdate;
 import lombok.Getter;

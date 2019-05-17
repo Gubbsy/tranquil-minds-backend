@@ -1,4 +1,4 @@
-package uk.gov.landregistry.kinderkat.dto;
+package tranquil.minds.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

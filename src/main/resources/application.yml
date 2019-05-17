@@ -14,8 +14,8 @@ spring:
   # = DATASOURCE
   # ===============================
   datasource:
-    url: jdbc:postgresql://postgres:5432/kinder_kat
-    username: kitty_kat
+    url: jdbc:postgresql://localhost:5432/user1
+    username: minds
     password: password
 
   # ===============================
